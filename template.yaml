@@ -1,0 +1,26 @@
+# You this file as a template for your CUCM cluster. Change the settings as per your cluster requirement.
+# DO NOT CHANGE ANY VARIABLE NAMES. DO NOT CHANGE COLONS | DASHES | TABS
+# -> CHROME_DRIVER_PATH - This should be full path to the chromedriver.
+CHROME_DRIVER_PATH: //chromedriver.exe
+# -> 0/1. Default=1. By Default it deletes old file if it has a different file name. 
+# Make 0 if you do not wish to delete Old source file selected for the source number.
+DELETE_OLD_SOURCE: 1
+# -> Application Username and Password for your CUCM Cluster
+app_user: username
+app_pswd: password
+# -> Publisher IP address of the CUCM Address. Replace the sample IP
+pub_ip: 10.10.10.10
+# -> MoH Server IP addresses in your CUCM Cluster. Replace the sample IPs.
+sub_ip_list:
+    - 10.20.10.10
+    - 10.30.10.10
+    - 10.40.10.10
+# -> Update Source index as per your CUCM Cluster MoH Sources.
+# This will be your reference while you are updating the MoH Source with newly uploaded file.
+# Use tabs on every line. Follow the structure
+source_index: |
+    1. MoH_Region_1
+    2. MoH_Region_2
+    3. MoH_Region_3
+    4. MoH_Region_4
+    5. MoH_Region_5
