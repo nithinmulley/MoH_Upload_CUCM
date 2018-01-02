@@ -74,7 +74,7 @@ def uploadmoh(server_ip, moh_file_path, source_num, moh_file):
             ref3 = ref2 + '.chked'
             driver.find_element_by_name(ref3).click()
             driver.find_element_by_name("Delete Selected").click()
-            driver.switch_to.alert().accept()
+            driver.switch_to.alert.accept()
             print(f"-> Delete successful on {server_ip}")
         except selenium_exceptions.NoSuchElementException as e:
             print(f"-> Unable to delete old MoH Source file on {server_ip}")
