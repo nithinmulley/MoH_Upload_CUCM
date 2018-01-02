@@ -121,7 +121,7 @@ if __name__ =='__main__':
     else:
         with open(sys.argv[1]) as f:
             settings = yaml.safe_load(f)
-    pub_sub_ip_list = settings['pub_ip'] + settings['sub_ip_list']
+    pub_sub_ip_list = [settings['pub_ip']] + settings['sub_ip_list']
     #Global Variables, these are accessed across parallel threads
     pub_updated = 0
     updated_servers = []
