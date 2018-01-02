@@ -60,6 +60,7 @@ def uploadmoh(server_ip, moh_file_path, source_num, moh_file):
         print('\n-> New MoH Source file applied')
         print(f'\n-> Proceeding to delete file {current_file} on all MoH Servers')
         time.sleep(2)
+        updated_servers = []
     else:
         pass
     while not pub_updated:
@@ -75,10 +76,13 @@ def uploadmoh(server_ip, moh_file_path, source_num, moh_file):
             driver.find_element_by_name(ref3).click()
             driver.find_element_by_name("Delete Selected").click()
             driver.switch_to.alert.accept()
-            print(f"-> Delete successful on {server_ip}")
+            del_status = 'successful'
         except selenium_exceptions.NoSuchElementException as e:
-            print(f"-> Unable to delete old MoH Source file on {server_ip}")
+            del_status = 'failed'
             print(e)
+        finally:
+            updated_servers.append(1)
+            print(f"-> {len(updated_servers)} - Delete {del_status} on {server_ip}")
         time.sleep(1)
     driver.close()
     return
